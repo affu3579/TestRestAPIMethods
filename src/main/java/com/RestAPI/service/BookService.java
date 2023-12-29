@@ -30,5 +30,12 @@ public class BookService {
     	book=list.stream().filter(e->e.getId()==id).findFirst().get();
     	return book;
     }
+
+	public void addBook(Book book) {
+		// TODO Auto-generated method stub
+		list.add(book);
+		
+		
+	}
     
 }

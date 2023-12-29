@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.RestAPI.entity.Book;
 import com.RestAPI.service.BookService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 public class BookController {
@@ -31,4 +34,12 @@ public class BookController {
 	public Book getSingleBook(@PathVariable("id") int id) {
 		return this.bookService.getBookById(id);
 	}
+	
+	@PostMapping("/books")
+	public Book addBook(@RequestBody Book book) {
+		//TODO: process POST request
+		 this.bookService.addBook(book);
+		return book;
+	}
+	
 }
