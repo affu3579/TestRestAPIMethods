@@ -3,6 +3,7 @@ package com.RestAPI.service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,25 @@ public class BookService {
 		// TODO Auto-generated method stub
 		list.add(book);
 		
+		
+	}
+
+	public void DeleteBook(int bookId) {
+		// TODO Auto-generated method stub
+		list =list.stream().filter(e->e.getId() != bookId).collect(Collectors.toList());
+	}
+
+	public void updateBook(int id,Book book) {
+		// TODO Auto-generated method stub
+		
+		list=list.stream().map(b->{
+			if(b.getId()==id) {
+				b.setTitle(book.getTitle());
+				b.setAuthor(book.getAuthor());
+			}
+			
+			return b;
+		}).collect(Collectors.toList());
 		
 	}
     
