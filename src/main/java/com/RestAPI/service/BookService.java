@@ -16,9 +16,10 @@ public class BookService {
 	
 	static
 	{
-//		list.add(new Book(1, "java", "QY"));
-//		list.add(new Book(2, "Python", "ABC"));
-//		list.add(new Book(3, "Springboot", "ZXC"));
+		// comment these added list to get Not found http response method
+		list.add(new Book(1, "java", "QY"));
+		list.add(new Book(2, "Python", "ABC"));
+		list.add(new Book(3, "Springboot", "ZXC"));
 	}
 	
 	public List<Book> getAllData()
