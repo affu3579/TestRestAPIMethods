@@ -16,9 +16,9 @@ public class BookService {
 	
 	static
 	{
-		list.add(new Book(1, "java", "QY"));
-		list.add(new Book(2, "Python", "ABC"));
-		list.add(new Book(3, "Springboot", "ZXC"));
+//		list.add(new Book(1, "java", "QY"));
+//		list.add(new Book(2, "Python", "ABC"));
+//		list.add(new Book(3, "Springboot", "ZXC"));
 	}
 	
 	public List<Book> getAllData()

@@ -1,8 +1,12 @@
 package com.RestAPI.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,13 +33,18 @@ public class BookController {
 //	}
 
 	@GetMapping("/books")
-	public List<Book> get()
+	public ResponseEntity<List<Book>>get()
 	{
-		return this.bookService.getAllData();
+		List<Book> book= bookService.getAllData();
+		if(book.size()<=0) {
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+		return ResponseEntity.of(Optional.of(book));
 	}
 	@GetMapping("/books/{id}")
 	public Book getSingleBook(@PathVariable("id") int id) {
-		return this.bookService.getBookById(id);
+	return this.bookService.getBookById(id);
+		
 	}
 	
 	@PostMapping("/books")
